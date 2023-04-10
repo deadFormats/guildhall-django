@@ -1,27 +1,28 @@
 {% extends "base.html" %}
 {% block title %}Dashboard{% endblock %}
 
+
 {% block content %}
-<div class="column is-one-fifth"></div>
-<div class="column is-three-fifths">
+<div class="column is-three-fifths is-offset-one-fifth">
     <h3 class="title has-text-black">Dashboard</h3>
     <hr>
     <p class="subtitle has-text-weight-light is-size-6">Welcome to your dashboard.</p>
 </div>
-<div class="column is-one-fifth">
-</div>
 
-<div class="column is-2">
-    <div class="info-tiles">
-        <div class="tile is-ancestor has-text-centered">
-            <div class="tile is-parent is-vertical has-text-white">
-                <a class="tile is-child box has-background-dark has-text-white is-size-4" href="{% url 'edit' %}">
-                    Edit profile
-                </a>
-                <a class="tile is-child box has-background-dark has-text-white is-size-4" href="{% url 'password_change' %}">Change your password</a>
-            </div>
+
+        <div class="column is-three-fifths has-background-black">
         </div>
-    </div>
-            
-                        
+                <div class="column is-one-third">
+            <nav class="panel">
+                <p class="panel-heading is-left">
+                    Settings
+                </p>
+                <a class="panel-block is-left" href="{% url 'edit' %}">Edit your profile</a>
+                <a class="panel-block is-left" href="{% url 'password_change' %}">Change your password</a>
+                <div class="panel-block">
+                    <a class="button is-danger is-outlined is-fullwidth" href="{% url 'logout' %}">Logout</a>
+                </div>
+            </nav>
+        </div>
+    
 {% endblock %}
