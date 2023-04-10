@@ -25,6 +25,25 @@
             </div>
             <input type="hidden" name="next" value="{{ next }}">
         </form>
+        <div class="buttons is-centered">
+            <a class="button is-medium facebook" href="{% url 'social:begin' 'facebook' %}">
+                <span class="icon">
+                    <i class="fa-brands fa-facebook" style="color: #fff;"></i>
+                </span>
+            </a>
+            <a class="button is-medium twitter" href="{% url 'social:begin' 'twitter' %}">
+                <span class="icon">
+                    <i class="fa-brands fa-twitter" style="color: #fff;"></i>
+                </span>
+            </a>
+            <a class="button is-medium google" href="{% url 'social:begin' 'google-oauth2' %}">
+                <span class="icon">
+                    <i class="fa-brands fa-google" style="color: #fff;"></i>
+                </span>
+            </a>
+        </div>
+                
+                
         <div class="block">
             <p class="has-text-weight-light is-size-6">
                 Don't have an account yet?
