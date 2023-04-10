@@ -1,13 +1,18 @@
 {% extends "base.html" %}
 {% block title %}Welcome{% endblock %}
 
-{% block content %}
-<div class="column is-one-quarter">
-</div>
-<div class="column is-half">
+{% block content_title %}
+
+<div class="column is-half is-offset-one-quarter">
     <h3 class="title has-text-black">Welcome {{ new_user.first_name }}!</h3>
     <hr>
     <p class="subtitle has-text-weight-light notification is-size-6 is-success">Your account has been successfully created.</p>
+</div>
+
+<div class="is-one-quarter"></div>
+{% endblock %}
+{% block content %}
+<div class="column is-half is-offset-one-quarter">
     <p class="block has-text-weight-light is-size-6">Now you can login using the credentials you just created below:</p>
     <br>
     <a class="button is-block is-info is-large is-fullwidth" href="{% url 'login' %}">Login</a>
