@@ -12,47 +12,52 @@
         <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
     </head>
     <body>
-        <section class="hero is-success is-fullheight">
-            {% block header %}
-            <div class="hero-head">
-                <header class="navbar">
-                    <div class="container">
-                        <div class="navbar-brand">
-                            <a class="navbar-item">
-                                <img src="{% static 'imgs/logo.png' %}" alt="logo">
-                            </a>
-                            <span class="navbar-burger" data-target="navbarMenu">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </span>
-                        </div>
-                        <div id="navbarMenu" class="navbar-menu">
-                            <div class="navbar-end">
-                                <a class="navbar-item" href="/">
-                                    Home
-                                </a>
-                            </div>
+        {% block header %}
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="/">
+                    <img src="{% static 'imgs/logo.png' %}" width="112" height="28">
+                </a>
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navBar">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+            <div id="navBar" class="navbar-menu">
+                <div class="navbar-start">
+                    <a class="navbar-item" href="/">
+                        Home
+                    </a>
+                    {% if request.user.is_authenticated %}
+                    <a class="navbar-item{% if section == 'dashboard' %} is-active{% endif %}" href="{% url 'dashboard' %}">My Dashboard</a>
+                    <a class="navbar-item{% if section == 'images' %} is-active{% endif %}" href="#">Images</a>
+                    <a class="navbar-item{% if section == 'people' %} is-active{% endif %}" href="#">People</a>
+                    {% endif %}
+                </div>
+                <div class="navbar-end">
+                    <div class="navbar-item">
+                        <div class="buttons">
+                            {% if request.user.is_authenticated %}
+                            <a class="button is-danger" href="{% url 'logout' %}">Logout</a>
+                            {% else %}
+                            <a class="button is-primary is-outlined" href="{% url 'login' %}">Login</a>
+                            <a class="button is-primary" href="{% url 'register' %}"><strong>Sign Up</strong></a>
+                            {% endif %}
                         </div>
                     </div>
-                </header>
+                </div>
             </div>
-            {% endblock %}
-            <div class="hero-body">
-                {% block content %}
-                {% endblock %}
+        </nav>
+        {% endblock %}
+        <section class="section">
+            <div class="container">
+                <div class="columns has-text-centered is-multiline">
+                    {% block content %}
+                    {% endblock %}
+                </div>
             </div>
-            {% block footer %}
-            <div class="hero-foot">
-                <nav class="tabs is-boxed is-fullwidth">
-                    <div class="container">
-                        <ul>
-                            <li class="is-active"><a href="#">Overview</a></li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
-            {% endblock %}
+                
         </section>
     </body>
 </html>
