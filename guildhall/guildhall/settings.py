@@ -25,7 +25,11 @@ SECRET_KEY = 'django-insecure-lvz=lpzp6au!^4ml(iukv^t3pocdw#to)p*8k8j!pt_$-6wqd0
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'mysite.com',
+    'localhost',
+    '127.0.0.1',
+]
 
 
 # Application definition
@@ -39,6 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bulma_forms.apps.BulmaFormsConfig',
+    'social_django',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
@@ -135,4 +141,5 @@ MEDIA_ROOT = BASE_DIR / 'media'
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'account.authentication.EmailAuthBackend',
+    'social_core.backends.facebook.FacebookOAuth2',
 ]
