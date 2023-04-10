@@ -53,6 +53,21 @@
         <section class="section">
             <div class="container">
                 <div class="columns has-text-centered is-multiline">
+                    {% block content_title %}
+                    {% endblock %}
+                    {% block messages %}
+                        {% if messages %}
+                        <div class="column is-three-fifths is-offset-one-fifth">
+                            {% for message in messages %}
+                            <p class="notification is-left is-{{ message.tags|bulma_message_tag }}">
+                                {{ message|safe }}
+                            </p>
+                            {% endfor %}
+                        </div>
+                        <div class="column is-one-fifth"></div>
+                        {% endif %}
+                        {% endblock %}
+                                
                     {% block content %}
                     {% endblock %}
                 </div>

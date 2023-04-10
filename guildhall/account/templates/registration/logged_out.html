@@ -1,13 +1,19 @@
 {% extends "base.html" %}
 {% load static form_tags %}
 {% block title %}Logged out{% endblock %}
-{% block content %}
+{% block content_title %}
 <div class="column is-one-third is-offset-one-third">
     <h3 class="title has-text-black">Logged out</h3>
     <hr>
     <p class="subtitle has-text-weight-light is-size-6">You have been successfully logged out.</p>
+</div>
+<div class="column is-one-third"></div>
+{% endblock %}
+{% block content %}
+<div class="column is-one-third is-offset-one-third">
     <div class="buttons">
         <a class="button is-block is-info is-large is-fullwidth" href="{% url 'login' %}">Log back in</a>
     </div>
 </div>
+<div class="column is-one-third"></div>
 {% endblock %}

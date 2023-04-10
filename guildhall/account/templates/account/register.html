@@ -1,13 +1,17 @@
 {% extends "base.html" %}
 {% load static form_tags %}
 {% block title %}Create an account{% endblock %}
-{% block content %}
-<div class="column is-one-third">
-</div>
-<div class="column is-one-third">
+{% block content_title %}
+
+<div class="column is-one-third is-offset-one-third">
     <h3 class="title has-text-black">Create an account</h3>
     <hr>
     <p class="subtitle has-text-weight-light is-size-6">Sign up using the form below:</p>
+</div>
+<div class="column is-one-third"></div>
+{% endblock %}
+{% block content %}
+<div class="column is-one-third is-offset-one-third">
     <div class="box">
         <form method="post">
             {{ user_form|bulma_form }}

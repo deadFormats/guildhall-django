@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static form_tags %}
 {% block title %}Login{% endblock %}
-{% block content %}
+{% block content_title %}
 
 <div class="column is-one-third is-offset-one-third">
     <h3 class="title has-text-black">Login</h3>
@@ -11,7 +11,11 @@
             Please login to proceed.
         </div>
     </article>
-            
+</div>
+<div class="column is-one-third"></div>
+{% endblock %}
+{% block content %}
+<div class="column is-one-third is-offset-one-third">
     <div class="box">
         <form method="post">
             {% csrf_token %}
@@ -33,5 +37,6 @@
             
     </div>
 </div>
+<div class="column is-one-third"></div>
 
 {% endblock %}
