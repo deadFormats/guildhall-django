@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static form_tags %}
+{% block title %}Account settings{% endblock %}
+{% block content %}
+<div class="column is-one-fifth">
+</div>
+<div class="column is-three-fifths">
+    <h3 class="title has-text-black">Account settings</h3>
+    <hr>
+    <p class="subtitle has-text-weight-light is-size-6">Change account settings and edit your profile here.</p>
+</div>
+<div class="column is-one-fifth">
+</div>
+<div class="column is-10 is-offset-1">
+    <div class="tile is-ancestor">
+        <div class="tile is-parent">
+            <div class="tile is-vertical is-parent">
+                <div class="tile is-child box">
+                    <form method="post" enctype="multipart/form-data">
+                        {{ user_form|bulma_form }}
+                        {{ profile_form|bulma_form }}
+                        {% csrf_token %}
+                        <div class="field">
+                            <button type="submit" class="button is-block is-primary is-outlined is-large is-fullwidth">Save changes</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="tile is-child box">
+                    <h3 class="title has-text-black is-size-5">Extra element here.</h3>
+                    <div class="block">
+                        <p class="has-text-left">Member Democrat before note much either very buy air similar power. Notice sign color fire budget tell skill herself. Local his finally. Yourself finally notice without garden security local long. End your little.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tile is-parent">
+            <div class="tile is-child">
+                <p>More</p>
+            </div>
+            <div class="tile is-child">
+                <p>Even more</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
